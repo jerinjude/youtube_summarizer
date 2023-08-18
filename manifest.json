@@ -3,6 +3,7 @@
   "name": "Hello Extensions",
   "description": "Base Level Extension",
   "version": "1.0",
+  "permissions": ["activeTab"],
   "action": {
     "default_popup": "index.html"
   }
