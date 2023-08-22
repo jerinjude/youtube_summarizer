@@ -4,18 +4,17 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
+def extract_title(url):
+    return (url + '\n')* 500
 
 @app.route('/send-url', methods=['POST'])
 def receive_url():
     data = request.get_json()
     url = data.get('url')
     
-    # Do whatever processing you want with the URL
-    # For example, print it
-    print('Received URL:', url)
+    processed_url = extract_title(url)  # Call the extract_title function
     
-    response_data = {'message': 'URL received successfully'}
+    response_data = {'message': 'URL received successfully', 'processed_url': processed_url}
     return jsonify(response_data)
 
 if __name__ == '__main__':

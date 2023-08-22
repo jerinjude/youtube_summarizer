@@ -1,4 +1,4 @@
-// index.js
+// popup.js
 
 // Function to fetch the current tab's URL
 function getCurrentTabUrl(callback) {
@@ -18,15 +18,19 @@ document
         document.getElementById("urlDisplay").textContent =
           "YouTube URL: " + url;
         sendDataToBackend(url); // Send the URL to the backend
+        document.getElementById("fetchUrlButton").style.display = "none"; // Hide the Fetch button
+        document.getElementById("exitButton").style.display = "block"; // Show the Exit button
       } else {
-        document.getElementById("urlDisplay").textContent =
-          "Not a YouTube link";
+        alert("This is not a YouTube link.");
       }
     } catch (error) {
       console.error("Error fetching URL:", error);
       document.getElementById("urlDisplay").textContent = "Error fetching URL";
     }
   });
+document.getElementById("exitButton").addEventListener("click", function () {
+  window.close(); // Close the popup
+});
 async function sendDataToBackend(url) {
   try {
     const response = await fetch("http://127.0.0.1:5000/send-url", {
@@ -38,11 +42,16 @@ async function sendDataToBackend(url) {
     });
     const responseData = await response.json();
     console.log("Backend response:", responseData);
+
+    // Display the processed URL from the backend response
+    if (responseData.processed_url) {
+      document.getElementById("urlDisplay").textContent =
+        "Processed URL: " + responseData.processed_url;
+    }
   } catch (error) {
     console.error("Error sending data to backend:", error);
   }
 }
-
 // Promisified version of getCurrentTabUrl
 function getCurrentTabUrlPromise() {
   return new Promise((resolve, reject) => {

@@ -1,16 +1,32 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>URL Summarizer</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <div class="container mt-3">
-      <button id="fetchUrlButton" class="btn btn-outline-info">Summarize</button>
+      <button
+        id="fetchUrlButton"
+        class="btn btn-outline-info"
+        href="summary.html"
+      >
+        Summarize
+      </button>
+      <button
+        id="exitButton"
+        class="btn btn-outline-danger"
+        style="display: none"
+      >
+        Exit
+      </button>
       <p id="urlDisplay"></p>
       <script src="frontend/popup.js"></script>
     </div>
-    
+  </body>
 </html>
-
