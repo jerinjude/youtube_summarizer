@@ -11,7 +11,9 @@ def url_parser(url):
 
 def transcript_process(url_transcript):
     texts=[]
-    for text in YouTubeTranscriptApi.get_transcript(url_transcript):
-        texts.append(text['text'].strip('\n').replace('\n',' '))
-    print('Transcript extraction completed')
-    return (' ').join(texts)
+    try:
+        for text in YouTubeTranscriptApi.get_transcript(url_transcript):
+            texts.append(text['text'].strip('\n').replace('\n',' '))
+        return (' ').join(texts)
+    except:
+        return "Transcript not found"
