@@ -14,14 +14,17 @@ document
   .addEventListener("click", async function () {
     try {
       const url = await getCurrentTabUrlPromise();
+
       if (isYouTubeLink(url)) {
-        document.getElementById("urlDisplay").textContent =
-          "YouTube URL: " + url;
+        document.getElementById("loremText").style.display = "none";
+        document.getElementById("urlDisplay").textContent = "Loading...";
         sendDataToBackend(url); // Send the URL to the backend
         document.getElementById("fetchUrlButton").style.display = "none"; // Hide the Fetch button
         document.getElementById("exitButton").style.display = "block"; // Show the Exit button
+        document.getElementById("urlDisplay").classList.add("processed");
       } else {
         alert("This is not a YouTube link.");
+        window.close();
       }
     } catch (error) {
       console.error("Error fetching URL:", error);
@@ -46,7 +49,7 @@ async function sendDataToBackend(url) {
     // Display the processed URL from the backend response
     if (responseData.processed_url) {
       document.getElementById("urlDisplay").textContent =
-        "Processed URL: " + responseData.processed_url;
+        "Summary: " + responseData.processed_url;
     }
   } catch (error) {
     console.error("Error sending data to backend:", error);

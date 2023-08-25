@@ -8,16 +8,29 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container mt-3">
-      <button
-        id="fetchUrlButton"
-        class="btn btn-outline-info"
-        href="summary.html"
-      >
-        Summarize
-      </button>
+      <div id="firstPopup" class="container mt-3 popup">
+        <div class="heading" id="loremText">
+          <h3>SummarEase</h3>
+          <p>
+            Tired of lengthy video descriptions eating up your time? Look no
+            further.
+          </p>
+        </div>
+        <button id="fetchUrlButton" type="button" class="btn btn-info">
+          Summarize
+        </button>
+      </div>
       <button
         id="exitButton"
         class="btn btn-outline-danger"

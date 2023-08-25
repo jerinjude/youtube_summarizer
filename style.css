@@ -1,0 +1,28 @@
+body {
+  background-image: linear-gradient(#cce3de, #6b9080);
+  background-position: top center;
+  background-repeat: no-repeat;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 1.125rem;
+}
+.heading h3 {
+  color: #70798c; /* Bright Yellow Color for Contrast */
+  font-size: 25px; /* Larger Font Size for Emphasis */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle Text Shadow */
+  margin-bottom: 20px; /* Add some space below the heading */
+  font-family: "Lobster Two", cursive;
+}
+.heading p {
+  font-size: small;
+}
+
+#urlDisplay.processed {
+  width: 400px;
+  height: 400px;
+  overflow: auto;
+  padding: 10px;
+}
+button {
+  margin-bottom: 5px;
+}
